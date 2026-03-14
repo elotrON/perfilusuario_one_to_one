@@ -1,12 +1,7 @@
-package com.example.perfilusuario_one_to_one.controller.entity;
+package com.example.perfilusuario_one_to_one.dto;
 
-import jakarta.persistence.Entity;
+public class PerfilRequest {
 
-@Entity
-public class Perfil {
-
-    
-    private int id;
     private String telefono;
     private String direccion;
 
@@ -16,14 +11,6 @@ public class Perfil {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTelefono() {
