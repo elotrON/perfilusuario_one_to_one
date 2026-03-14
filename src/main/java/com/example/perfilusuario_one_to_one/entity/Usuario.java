@@ -3,6 +3,7 @@ package com.example.perfilusuario_one_to_one.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
