@@ -4,13 +4,12 @@ import com.example.perfilusuario_one_to_one.dto.UsuarioRequest;
 import com.example.perfilusuario_one_to_one.dto.UsuarioResponse;
 import com.example.perfilusuario_one_to_one.entity.Usuario;
 import com.example.perfilusuario_one_to_one.repository.RepoBBDD;
-import com.example.perfilusuario_one_to_one.service.UsuarioService;
+import com.example.perfilusuario_one_to_one.service.usuarioService_tmp;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.AssertionsKt.*;
@@ -25,7 +24,7 @@ class UsuarioServiceTest {
 	private RepoBBDD repoBBDD;
 
 	@InjectMocks
-	private UsuarioService usuarioService;
+	private usuarioService_tmp usuarioService;
 
 	@Test
 	void crearUsuario_deberiaRetornarUsuarioResponse() {
