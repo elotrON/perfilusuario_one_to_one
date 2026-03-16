@@ -4,7 +4,7 @@ import com.example.perfilusuario_one_to_one.dto.UsuarioRequest;
 import com.example.perfilusuario_one_to_one.dto.UsuarioResponse;
 import com.example.perfilusuario_one_to_one.entity.Usuario;
 import com.example.perfilusuario_one_to_one.repository.RepoBBDD;
-import com.example.perfilusuario_one_to_one.service.usuarioService_tmp;
+import com.example.perfilusuario_one_to_one.service.UsuarioService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -24,7 +24,7 @@ class UsuarioServiceTest {
 	private RepoBBDD repoBBDD;
 
 	@InjectMocks
-	private usuarioService_tmp usuarioService;
+	private UsuarioService usuarioService;
 
 	@Test
 	void crearUsuario_deberiaRetornarUsuarioResponse() {
