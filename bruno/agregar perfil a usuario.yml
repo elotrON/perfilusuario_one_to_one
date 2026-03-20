@@ -1,0 +1,23 @@
+info:
+  name: agregar perfil a usuario
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{url}}/usuarios/7"
+  body:
+    type: json
+    data: |
+      {
+        
+        "telefono": "88888888",
+        "direccion": "Calle Blasa"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
