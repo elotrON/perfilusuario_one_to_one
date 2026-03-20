@@ -94,7 +94,12 @@ public class UsuarioService {
     }
 
 
-    // TODO CONSULTAR USUARIO
+    /**
+     * CONSULTAR DATOS DE USUARIO
+     *
+     * @param id
+     * @return
+     */
     public UsuarioResponse obtenerUsuarioPorId(Integer id){
         Usuario usuario =  usuarioRepository
                             .findById(id)
@@ -104,13 +109,33 @@ public class UsuarioService {
 
 
 
+    /**
+     * REEMPLAZAR DATOS DE USUARIO
+     *
+     * @param id
+     * @param usuarioRequest
+     * @return
+     */
+    public UsuarioResponse reemplazarUsuario(Integer id, UsuarioRequest usuarioRequest){
+
+        //  creamos un usuario
+        Usuario usuario = usuarioRepository.findById(id).orElse(null);
+        if(usuario == null) return null;
+
+        // si el usuario existe, escribimos los nuevos valores
+        usuario.setNombre(usuarioRequest.getNombre());
+        usuario.setEmail(usuarioRequest.getEmail());
+
+        usuarioRepository.save(usuario);
+        return toResponse(usuario);
+    }
+
 
     // TODO CONSULTAR DATOS DE USUARIO Y PERFIL
 
-
-
     private PerfilResponse toResponse(Perfil perfil){
         if(perfil == null) return null;
+
         PerfilResponse perfilResponse = new PerfilResponse();
         perfilResponse.setDireccion(perfil.getDireccion());
         perfilResponse.setTelefono(perfil.getTelefono());

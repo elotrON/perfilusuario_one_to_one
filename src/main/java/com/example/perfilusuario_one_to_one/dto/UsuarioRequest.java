@@ -4,6 +4,7 @@ public class UsuarioRequest {
 
 
     private String nombre;
+
     private String email;
 
     public String getEmail() {

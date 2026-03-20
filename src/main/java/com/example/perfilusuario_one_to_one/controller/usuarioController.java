@@ -52,10 +52,32 @@ public class usuarioController {
         return usuarioService.crearPerfil(id, perfilRequest);
     }
 
+    /**
+     * OBTIENE LOS DATOS DE UN USUARIO (NO OBIENE EL PERFIL)
+     *
+     * @param id
+     * @return
+     */
     @GetMapping("/usuarios/{id}")
     public UsuarioResponse obtenerUsuario(@PathVariable Integer id){
         return usuarioService.obtenerUsuarioPorId(id);
     }
+
+    /**
+     * REEMPLAZA TODOS LOS DATOS DEL USUARIO
+     *
+     * @param id
+     * @param usuarioRequest
+     * @return
+     */
+    @PutMapping("/usuarios/{id}")
+    public UsuarioResponse reemplazarUsuario(@PathVariable Integer id, @RequestBody UsuarioRequest usuarioRequest){
+    return usuarioService.reemplazarUsuario(id, usuarioRequest);
+
+    }
+
+
+
 
 
 

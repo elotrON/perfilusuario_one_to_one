@@ -1,11 +1,18 @@
 info:
   name: modificar usuario
   type: http
-  seq: 4
+  seq: 5
 
 http:
   method: PUT
-  url: ""
+  url: "{{url}}/usuarios/4"
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "paco paquito",
+        "email": "pppp@pppp.in"
+      }
   auth: inherit
 
 settings:
