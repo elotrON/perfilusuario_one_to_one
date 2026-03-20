@@ -52,6 +52,10 @@ public class usuarioController {
         return usuarioService.crearPerfil(id, perfilRequest);
     }
 
+    @GetMapping("/usuarios/{id}")
+    public UsuarioResponse obtenerUsuario(@PathVariable Integer id){
+        return usuarioService.obtenerUsuarioPorId(id);
+    }
 
 
 

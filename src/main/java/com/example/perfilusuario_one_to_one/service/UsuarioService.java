@@ -8,6 +8,7 @@ import com.example.perfilusuario_one_to_one.entity.Perfil;
 import com.example.perfilusuario_one_to_one.entity.Usuario;
 import com.example.perfilusuario_one_to_one.repository.PerfilRepository;
 import com.example.perfilusuario_one_to_one.repository.UsuarioRepository;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -57,7 +58,13 @@ public class UsuarioService {
         return toResponse(usuario);
     }
 
-    // TODO IMPLEMENTAR QUE SE PUEDA CREAR EL PERFIL PARA UN USUARIO
+    /**
+     * CREAR UN PERFIL PARA UN USUARIO EXISTENTE
+     *
+     * @param idUsuario
+     * @param perfilRequest
+     * @return
+     */
     public PerfilResponse crearPerfil(Integer idUsuario, PerfilRequest perfilRequest){
 
         // Recibir el idUsuario del usuario
@@ -87,11 +94,23 @@ public class UsuarioService {
     }
 
 
+    // TODO CONSULTAR USUARIO
+    public UsuarioResponse obtenerUsuarioPorId(Integer id){
+        Usuario usuario =  usuarioRepository
+                            .findById(id)
+                            .orElse(null);
+        return toResponse(usuario);
+    }
+
+
+
+
     // TODO CONSULTAR DATOS DE USUARIO Y PERFIL
 
 
 
     private PerfilResponse toResponse(Perfil perfil){
+        if(perfil == null) return null;
         PerfilResponse perfilResponse = new PerfilResponse();
         perfilResponse.setDireccion(perfil.getDireccion());
         perfilResponse.setTelefono(perfil.getTelefono());
@@ -100,6 +119,7 @@ public class UsuarioService {
     }
 
     private UsuarioResponse toResponse(Usuario usuario){
+        if(usuario == null) return null;
         UsuarioResponse ures = new UsuarioResponse();
         ures.setId(usuario.getId());
         ures.setEmail(usuario.getEmail());
