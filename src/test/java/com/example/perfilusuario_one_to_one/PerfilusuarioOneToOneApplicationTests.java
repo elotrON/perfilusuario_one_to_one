@@ -3,7 +3,7 @@ package com.example.perfilusuario_one_to_one;
 import com.example.perfilusuario_one_to_one.dto.UsuarioRequest;
 import com.example.perfilusuario_one_to_one.dto.UsuarioResponse;
 import com.example.perfilusuario_one_to_one.entity.Usuario;
-import com.example.perfilusuario_one_to_one.repository.RepoBBDD;
+import com.example.perfilusuario_one_to_one.repository.UsuarioRepository;
 import com.example.perfilusuario_one_to_one.service.UsuarioService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 class UsuarioServiceTest {
 
 	@Mock
-	private RepoBBDD repoBBDD;
+	private UsuarioRepository usuarioRepository;
 
 	@InjectMocks
 	private UsuarioService usuarioService;
@@ -38,7 +38,7 @@ class UsuarioServiceTest {
 		usuarioGuardado.setNombre("Juan");
 		usuarioGuardado.setEmail("juan@correo.com");
 
-		when(repoBBDD.save(any(Usuario.class))).thenReturn(usuarioGuardado);
+		when(usuarioRepository.save(any(Usuario.class))).thenReturn(usuarioGuardado);
 
 		// Act
 		UsuarioResponse response = usuarioService.crearUsuario(request);

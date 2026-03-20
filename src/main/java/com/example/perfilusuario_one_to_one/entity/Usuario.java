@@ -16,6 +16,9 @@ public class Usuario {
     @Column
     private String email;
 
+    @OneToOne(mappedBy = "usuario")
+    private Perfil perfil;
+
 
     public String getEmail() {
         return email;
@@ -39,5 +42,13 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
     }
 }

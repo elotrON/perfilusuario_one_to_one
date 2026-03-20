@@ -54,3 +54,10 @@ Que al guardar un usuario:
 - se cree también su perfil,
 - queden relacionados en base de datos,
 - y cada perfil solo pueda pertenecer a un usuario
+
+## Requisitos de la aplicación
+
+- crearUsuario
+- crearPerfilParaUsuario
+- cambiarNombreUsuario
+- obtenerUsuarioConPerfil
