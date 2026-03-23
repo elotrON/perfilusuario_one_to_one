@@ -128,7 +128,11 @@ public class UsuarioService {
     }
 
 
-    // TODO CONSULTAR DATOS DE USUARIO Y PERFIL
+    /**
+     * DEVUELVE EL USUARIO Y EL PERFIL
+     * @param id
+     * @return
+     */
     public UsuarioConPerfilResponse obtenerUsuarioConPerfilPorId(Integer id){
         Usuario usuario =  usuarioRepository
                 .findById(id)
@@ -147,7 +151,8 @@ public class UsuarioService {
         UsuarioConPerfilResponse response = new UsuarioConPerfilResponse();
         response.setEmail(usuario.getEmail());
         response.setNombre(usuario.getNombre());
-        response.setPerfilResponse(toResponse(usuario.getPerfil()));        //estoy bloqueado aqui. no se como asignar el perfil de 'usuario' al objeto 'reponse'
+        response.setPerfilResponse(toResponse(usuario.getPerfil()));
+        response.setId(usuario.getId());
 
         return response;
     }
