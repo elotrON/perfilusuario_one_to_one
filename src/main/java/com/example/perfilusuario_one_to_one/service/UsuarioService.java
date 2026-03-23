@@ -1,9 +1,6 @@
 package com.example.perfilusuario_one_to_one.service;
 
-import com.example.perfilusuario_one_to_one.dto.PerfilRequest;
-import com.example.perfilusuario_one_to_one.dto.PerfilResponse;
-import com.example.perfilusuario_one_to_one.dto.UsuarioRequest;
-import com.example.perfilusuario_one_to_one.dto.UsuarioResponse;
+import com.example.perfilusuario_one_to_one.dto.*;
 import com.example.perfilusuario_one_to_one.entity.Perfil;
 import com.example.perfilusuario_one_to_one.entity.Usuario;
 import com.example.perfilusuario_one_to_one.repository.PerfilRepository;
@@ -23,7 +20,7 @@ public class UsuarioService {
     }
 
     /**
-     * CREAR USUARIO
+     * [PUT] --> CREAR USUARIO
      * @param nuevoUsuario
      * @return
      */
@@ -40,7 +37,7 @@ public class UsuarioService {
 
 
     /**
-     * MODIFICAR LOS DATOS DEL USUARIO
+     * [PATCH] --> MODIFICAR LOS DATOS DEL USUARIO
      *
      * @param id
      * @param usuarioRequest
@@ -59,7 +56,7 @@ public class UsuarioService {
     }
 
     /**
-     * CREAR UN PERFIL PARA UN USUARIO EXISTENTE
+     * [PUT] --> CREAR UN PERFIL PARA UN USUARIO EXISTENTE
      *
      * @param idUsuario
      * @param perfilRequest
@@ -95,7 +92,7 @@ public class UsuarioService {
 
 
     /**
-     * CONSULTAR DATOS DE USUARIO
+     * [GET] --> CONSULTAR DATOS DE USUARIO
      *
      * @param id
      * @return
@@ -110,7 +107,7 @@ public class UsuarioService {
 
 
     /**
-     * REEMPLAZAR DATOS DE USUARIO
+     * [POST] --> REEMPLAZAR DATOS DE USUARIO
      *
      * @param id
      * @param usuarioRequest
@@ -132,9 +129,34 @@ public class UsuarioService {
 
 
     // TODO CONSULTAR DATOS DE USUARIO Y PERFIL
+    public UsuarioConPerfilResponse obtenerUsuarioConPerfilPorId(Integer id){
+        Usuario usuario =  usuarioRepository
+                .findById(id)
+                .orElse(null);
+        return usuarioConPerfilResponse(usuario);
+    }
 
 
+    /**
+     * DEVUELVE UN OBJETO QUE CONTIENE EL USUARIO Y EL PERFIL
+     *
+     * @param usuario
+     * @return
+     */
+    private UsuarioConPerfilResponse usuarioConPerfilResponse(Usuario usuario){
+        UsuarioConPerfilResponse response = new UsuarioConPerfilResponse();
+        response.setEmail(usuario.getEmail());
+        response.setNombre(usuario.getNombre());
+        response.setPerfilResponse(toResponse(usuario.getPerfil()));        //estoy bloqueado aqui. no se como asignar el perfil de 'usuario' al objeto 'reponse'
 
+        return response;
+    }
+
+    /**
+     * CONVIERTE Perfil --> PerfilResponse
+     * @param perfil
+     * @return
+     */
     private PerfilResponse toResponse(Perfil perfil){
         if(perfil == null) return null;
 
@@ -145,6 +167,11 @@ public class UsuarioService {
         return perfilResponse;
     }
 
+    /**
+     * CONVIERTE Usuario --> UsuarioResponse
+     * @param usuario
+     * @return
+     */
     private UsuarioResponse toResponse(Usuario usuario){
         if(usuario == null) return null;
         UsuarioResponse ures = new UsuarioResponse();

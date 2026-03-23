@@ -1,9 +1,6 @@
 package com.example.perfilusuario_one_to_one.controller;
 
-import com.example.perfilusuario_one_to_one.dto.PerfilResponse;
-import com.example.perfilusuario_one_to_one.dto.PerfilRequest;
-import com.example.perfilusuario_one_to_one.dto.UsuarioRequest;
-import com.example.perfilusuario_one_to_one.dto.UsuarioResponse;
+import com.example.perfilusuario_one_to_one.dto.*;
 import com.example.perfilusuario_one_to_one.service.UsuarioService;
 import org.apache.coyote.Request;
 import org.springframework.web.bind.annotation.*;
@@ -72,11 +69,19 @@ public class usuarioController {
      */
     @PutMapping("/usuarios/{id}")
     public UsuarioResponse reemplazarUsuario(@PathVariable Integer id, @RequestBody UsuarioRequest usuarioRequest){
-    return usuarioService.reemplazarUsuario(id, usuarioRequest);
+        return usuarioService.reemplazarUsuario(id, usuarioRequest);
 
     }
 
-    public UsuarioResponse
+    /**
+     * OBTIENE LOS DATOS DE UN USUARIO Y SU PERFIL
+     * @param id
+     * @return
+     */
+    @GetMapping("/usuarios/{id}/perfil")
+    public UsuarioConPerfilResponse obtenerUsuarioConPerfil(@PathVariable Integer id){
+        return usuarioService.obtenerUsuarioConPerfilPorId(id);
+    }
 
 
 
