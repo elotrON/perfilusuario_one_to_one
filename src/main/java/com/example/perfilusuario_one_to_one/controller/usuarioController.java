@@ -76,7 +76,7 @@ public class usuarioController {
 
     }
 
-
+    public UsuarioResponse
 
 
 

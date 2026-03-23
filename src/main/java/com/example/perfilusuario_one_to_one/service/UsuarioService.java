@@ -133,6 +133,8 @@ public class UsuarioService {
 
     // TODO CONSULTAR DATOS DE USUARIO Y PERFIL
 
+
+
     private PerfilResponse toResponse(Perfil perfil){
         if(perfil == null) return null;
 

@@ -1,16 +1,16 @@
 info:
   name: editar usuario
   type: http
-  seq: 4
+  seq: 2
 
 http:
   method: PATCH
-  url: "{{url}}/usuarios/7"
+  url: "{{url}}/usuarios/1"
   body:
     type: json
     data: |-
       {
-        "email": "assaasss@marta.com"
+        "nombre": "aaaaaa"
       }
   auth: inherit
 
