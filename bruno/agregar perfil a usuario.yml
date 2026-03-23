@@ -5,14 +5,14 @@ info:
 
 http:
   method: POST
-  url: "{{url}}/usuarios/7"
+  url: "{{url}}/usuarios/8"
   body:
     type: json
     data: |
       {
         
-        "telefono": "88888888",
-        "direccion": "Calle Blasa"
+        "telefono": "1212121212",
+        "direccion": "KKKKKKKKKKKKK"
       }
   auth: inherit
 

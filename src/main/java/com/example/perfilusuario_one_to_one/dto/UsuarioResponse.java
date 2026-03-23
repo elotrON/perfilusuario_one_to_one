@@ -5,16 +5,7 @@ public class UsuarioResponse {
     private Integer id;
     private String nombre;
     private String email;
-    private PerfilResponse perfilResponse;
 
-
-    public PerfilResponse getPerfilResponse() {
-        return perfilResponse;
-    }
-
-    public void setPerfilResponse(PerfilResponse perfilResponse) {
-        this.perfilResponse = perfilResponse;
-    }
 
     public String getEmail() {
         return email;

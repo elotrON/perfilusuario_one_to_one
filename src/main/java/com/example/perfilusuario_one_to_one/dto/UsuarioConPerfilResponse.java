@@ -1,6 +1,6 @@
 package com.example.perfilusuario_one_to_one.dto;
 
-public class UsuarioResponse {
+public class UsuarioConPerfilResponse {
 
     private Integer id;
     private String nombre;
